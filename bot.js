@@ -23,7 +23,6 @@ for(var key in botModules) {
 	}
 }
 
-
 // Logging
 client.addListener('message', function(from, to, text, raw) {
 	if(to === client.nick) to = from;
@@ -34,9 +33,8 @@ client.addListener('error', function(err) {
 	console.error('Error in irc protocol', err);
 });
 
-
 function terminate() {
-	client.disconnect('Bye~');
+	client.disconnect('cya nerds');
 	process.exit();
 }
 
