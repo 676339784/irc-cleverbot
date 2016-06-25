@@ -20,7 +20,17 @@ module.exports = function(client, moduleEvent) {
 					client.join(chan);
 				});
 				break;
-
+			case 'meme':
+				var letters = args.join('').split('');
+				var string='';
+				for (i = 0; i < letters.length; i++) {
+				    string=string+letters[i]+' ';
+				}
+				client.say(to,string);
+				for (i=1; i<letters.length;i++){
+					client.say(to,letters[i]);
+				}
+				break;
 			case 'part':
 				if(args.length === 0 && to[0] === '#') args[0] = to;
 
