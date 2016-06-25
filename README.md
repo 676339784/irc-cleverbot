@@ -10,10 +10,7 @@ Just talk to it:
     <bot> Hello.
 
 ### Commands
-- `.join <chan>`: Joins a channel.
-- `.part [chan]`: Leaves a channel.
-- `.nick <nick>`: Changes the nick.
-- `.say <msg>`: Says whatever you want it to say.
+- needs to be updated
 
 ### Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
