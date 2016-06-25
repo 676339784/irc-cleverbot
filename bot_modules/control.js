@@ -47,7 +47,13 @@ module.exports = function(client, moduleEvent) {
 				});
 				break;
 			case 'rape':
-				client.say(to, 'what the fuck did you just fucking say about me you little bitch');
+				client.say(to, '.rape '+ from);
+				break;
+			case 'sell':
+				client.say(to, '.sell '+ from);
+				break;
+			case 'ping':
+				client.say(to, '.ping');
 				break;
 			case 'eat':
 				client.action(to, 'eats ' + args[0]);
