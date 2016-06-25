@@ -10,18 +10,24 @@ module.exports = function(client, moduleEvent) {
 			cmd = (args.splice(0, 1)[0] + ' ').substr(1).trim();
 
 		switch(cmd) {
-			case 'say':
-				client.say(to, args.join(' '));
-				break;
-
 			case 'join':
 				args.forEach(chan => {
 					if(chan[0] !== '#') return;
 					client.join(chan);
 				});
 				break;
+			case 'say':
+				if(args[0][0] === '#'){
+					chan=args[0];
+					args.splice(0,1);
+					client.say(chan, args.join(' '));
+				}
+				else{
+					client.say(to,args.join(' '));
+				}
+				break;
 			case 'meme':
-				var letters = args.join('').split('');
+				var letters = args.join('').trim().substr(0, 16).split('');
 				var string='';
 				for (i = 0; i < letters.length; i++) {
 				    string=string+letters[i]+' ';
@@ -31,6 +37,7 @@ module.exports = function(client, moduleEvent) {
 					client.say(to,letters[i]);
 				}
 				break;
+
 			case 'part':
 				if(args.length === 0 && to[0] === '#') args[0] = to;
 
@@ -38,9 +45,13 @@ module.exports = function(client, moduleEvent) {
 					if(chan[0] !== '#') return;
 					client.part(chan, 'requested by ' + from);
 				});
-
 				break;
-
+			case 'rape':
+				client.say(to, 'what the fuck did you just fucking say about me you little bitch');
+				break;
+			case 'eat':
+				client.action(to, 'eats ' + args[0]);
+				break;
 			case 'quit':
 				client.say(to, 'no');
 				break;
@@ -56,4 +67,5 @@ module.exports = function(client, moduleEvent) {
 		//client.notice(from, 'Thanks ' + from + ' for inviting me to ' + chan);
 		client.join(chan);
 	});
+
 };
