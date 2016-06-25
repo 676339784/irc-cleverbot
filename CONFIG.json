@@ -1,9 +1,9 @@
 {
 	"irchost": "irc.rizon.net",
-	"name": "uquubot",
-	"real": "uquubot",
+	"name": "afIoat",
+	"real": "afIoat",
 	"channels": [
-		"#homescreen",
-		"#ensorcell"
+		"#ensorcell",
+		"#EvolovE"
 	]
 }
