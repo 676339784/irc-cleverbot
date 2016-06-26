@@ -1,4 +1,4 @@
-# irc-cleverbot
+# uquubot
 An IRC bot that speaks using [cleverbot-node](https://github.com/fojas/cleverbot-node).
 
 Install by running `npm install` and then `node bot.js`.
