@@ -128,17 +128,17 @@ module.exports = function(client, moduleEvent) {
 					fs.writeFileSync(pfile,balance);
 					if(balance>=0){
 						balance=formatMoney(balance);
-						client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now has $'+balance);
+						client.say(to,from +' sells '+args.join(' ').trim()+' for $'+add+' and now has $'+balance);
 					}
 					else{
 						balance=formatMoney(balance*-1);
-						client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now owes $'+balance);
+						client.say(to,from +' sells '+args.join(' ').trim()+' for $'+add+' and now owes $'+balance);
 					}
 				}
 				else{
 					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
 					fs.writeFileSync(pfile,add);
-					client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now has $'+add);
+					client.say(to,from +' sells '+args.join(' ').trim()+' for $'+add+' and now has $'+add);
 				}
 				break;
 			case '.buy':
@@ -150,17 +150,17 @@ module.exports = function(client, moduleEvent) {
 					fs.writeFileSync(pfile,balance);
 					if(balance>=0){
 						balance=formatMoney(balance);
-						client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now has $'+balance);
+						client.say(to,from +' buys '+args.join(' ').trim()+' for $'+sub+' and now has $'+balance);
 					}
 					else{
 						balance=formatMoney(balance*-1);
-						client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now owes $'+balance);
+						client.say(to,from +' buys '+args.join(' ').trim()+' for $'+sub+' and now owes $'+balance);
 					}
 				}
 				else{
 					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
 					fs.writeFileSync(pfile,sub*(-1));
-					client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now owes $'+sub);
+					client.say(to,from +' buys '+args.join(' ').trim()+' for $'+sub+' and now owes $'+sub);
 				}
 				break;
 
