@@ -51,6 +51,14 @@ Just talk to it:
 
 - **zoz** `zoz` returns a zoz variation
 
+###Money
+
+- **owe** `.owe`, `.balance` checks the balance of the specified user
+
+- **sell** `.sell` sells an item
+
+- **buy** `.buy` buys an item
+
 ###Admin Commands
 
 - **admin** `.admin` adds an admin
