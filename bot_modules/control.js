@@ -100,9 +100,10 @@ module.exports = function(client, moduleEvent) {
 				if(args.length>0){
 					from=args[0];
 				}
+				pfile='userdata/balance/'+from+'.txt';
 				accounts = fs.readFileSync('userdata/balance/0.txt').toString().split('\r\n');
 				if(contains(accounts,from)){
-					balance = fs.readFileSync('userdata/balance/'+from+'.txt').toString();
+					balance = fs.readFileSync(pfile).toString();
 					if(balance>=0){
 						balance=formatMoney(balance);
 						client.say(to,from +' has $'+balance);
@@ -114,7 +115,7 @@ module.exports = function(client, moduleEvent) {
 				}
 				else{
 					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
-					fs.writeFileSync('userdata/balance/'+from+'.txt',0);
+					fs.writeFileSync(pfile,0);
 					client.say(to,from+' has $'+0);
 				}
 				break;
@@ -234,7 +235,7 @@ module.exports = function(client, moduleEvent) {
 			case '.lewd':
 				client.say(to, '.rape '+ from);
 				break;
-				
+
 			case 'eat':
 				client.action(to, 'eats ' + args[0]);
 				break;
