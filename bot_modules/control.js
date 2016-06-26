@@ -3,6 +3,7 @@ var fs = require('fs');
 var adminfile='admins.txt';
 	admins = fs.readFileSync(adminfile).toString().split('\r\n');
 	info = fs.readFileSync('info.txt').toString().split('\r\n');
+	chan='';
 
 function alphanumeric(str) {
 	return str.replace(/[^a-z0-9_-`]/gi, '');
@@ -19,7 +20,7 @@ module.exports = function(client, moduleEvent) {
 			cmd = (args.splice(0, 1)[0] + ' ').trim();
 		if(contains(admins,from)){
 			switch(cmd){
-				case 'join':
+				case '.join':
 					args.forEach(chan => {
 						if(chan[0] !== '#'){
 							client.join('#'+chan);
@@ -28,21 +29,29 @@ module.exports = function(client, moduleEvent) {
 					});
 					break;
 
-				case 'id':
+				case '.id':
 					client.say("nickserv", "identify " + info[0]);
 					break;
-				case 'say':
-				case 'tell':
+				case '.admin':
+					fs.appendFileSync(adminfile,args[0]+'\r\n');
+					admins = fs.readFileSync(adminfile).toString().split('\r\n');
+					break;
+				case '.say':
+				case '.tell':
 					if(args[0][0] !== '#'){
 						chan='#'+args[0];
 					}
+					else{
+						chan=args[0];
+					}
+					console.log(chan);
 					args.splice(0,1);
 					client.say(chan, args.join(' '));
 					break;
 
-				case 'reset':
-				case 'rejoin':
-				case 'restart':
+				case '.reset':
+				case '.rejoin':
+				case '.restart':
 					if(args.length === 0 && to[0] === '#') args[0] = to;
 
 					args.forEach(chan => {
@@ -60,7 +69,7 @@ module.exports = function(client, moduleEvent) {
 					});
 					break;	
 
-				case 'part':
+				case '.part':
 					if(args.length === 0 && to[0] === '#') args[0] = to;
 
 					args.forEach(chan => {
@@ -71,7 +80,7 @@ module.exports = function(client, moduleEvent) {
 					});
 					break;
 
-				case 'nick':
+				case '.nick':
 					var nick = alphanumeric(args[0]).substr(0, 16);
 					if(nick !== '')client.say('NICK '+ nick);
 					break;
