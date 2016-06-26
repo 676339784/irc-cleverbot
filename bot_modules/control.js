@@ -11,6 +11,9 @@ function alphanumeric(str) {
 function contains(array, value) {
   return array.indexOf(value) > -1;
 }
+function formatMoney(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 module.exports = function(client, moduleEvent) {
 	client.addListener('message', (from, to, text, raw) => {
@@ -92,6 +95,74 @@ module.exports = function(client, moduleEvent) {
 				client.say(to,'lol');
 				break;
 
+			case '.owe':
+			case '.balance':
+				if(args.length>0){
+					from=args[0];
+				}
+				accounts = fs.readFileSync('userdata/balance/0.txt').toString().split('\r\n');
+				if(contains(accounts,from)){
+					balance = fs.readFileSync('userdata/balance/'+from+'.txt').toString();
+					if(balance>=0){
+						balance=formatMoney(balance);
+						client.say(to,from +' has $'+balance);
+					}
+					else{
+						balance=formatMoney(balance*-1);
+						client.say(to,from+' owes $'+balance);
+					}
+				}
+				else{
+					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
+					fs.writeFileSync('userdata/balance/'+from+'.txt',0);
+					client.say(to,from+' has $'+0);
+				}
+				break;
+			case '.sell':
+				accounts = fs.readFileSync('userdata/balance/0.txt').toString().split('\r\n');
+				add=Math.floor((Math.random()*1000) + 1);
+				pfile='userdata/balance/'+from+'.txt';
+				if(contains(accounts,from)){
+					balance = parseInt(fs.readFileSync(pfile))+add;
+					fs.writeFileSync(pfile,balance);
+					if(balance>=0){
+						balance=formatMoney(balance);
+						client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now has $'+balance);
+					}
+					else{
+						balance=formatMoney(balance*-1);
+						client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now owes $'+balance);
+					}
+				}
+				else{
+					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
+					fs.writeFileSync(pfile,add);
+					client.say(to,from +' sells '+args.join(' ')+' for $'+add+' and now has $'+add);
+				}
+				break;
+			case '.buy':
+				accounts = fs.readFileSync('userdata/balance/0.txt').toString().split('\r\n');
+				sub=Math.floor((Math.random()*1000) + 1);
+				pfile='userdata/balance/'+from+'.txt';
+				if(contains(accounts,from)){
+					balance = parseInt(fs.readFileSync(pfile))-sub;
+					fs.writeFileSync(pfile,balance);
+					if(balance>=0){
+						balance=formatMoney(balance);
+						client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now has $'+balance);
+					}
+					else{
+						balance=formatMoney(balance*-1);
+						client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now owes $'+balance);
+					}
+				}
+				else{
+					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
+					fs.writeFileSync(pfile,sub*(-1));
+					client.say(to,from +' buys '+args.join(' ')+' for $'+sub+' and now owes $'+sub);
+				}
+				break;
+
 			case 'zoz':
 				list=['zozzle','zim zam','zooperz','zezezez','zimbabwe','shoes on sizzle'];
 				client.say(to,list[Math.floor((Math.random()*6))]);
@@ -163,14 +234,7 @@ module.exports = function(client, moduleEvent) {
 			case '.lewd':
 				client.say(to, '.rape '+ from);
 				break;
-
-			case '.sell':
-			case '.buy':
-				if(Math.floor((Math.random() * 3) + 1)==1){
-					client.say(to, '.sell '+ from);
-				}
-				break;
-
+				
 			case 'eat':
 				client.action(to, 'eats ' + args[0]);
 				break;
