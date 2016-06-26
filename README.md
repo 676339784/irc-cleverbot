@@ -9,26 +9,31 @@ Just talk to it:
     <realhuman> bot: hello
     <bot> Hello.
 
+It will have a semi-intelligent conversation with you. I promise
+
 ## Commands
 
 ###Public Commands
 
-- **cowsay** `cowsay`, `cow` returns the text in a speech bubble from a talking cow
-- **cowsay -tux** `tux`, `tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
-- **dat boi** `o shit`, `oshit` returns "waddup"
-- **dude weed lmao** `dude` returns "weed lmao"
-- **eat** `eat` eats the target argument
+- **eat** `.eat` eats the target argument
 - **flags: red/white/blue** `.us`, `.uk`, `.ru`, `.au`, `.cl`, `.cu`, `.lr`, `.fr`, `.cz` returns a red/white/blue version of the text
 - **flags: red/white/green** `.it`, `.mx`, `.ir`, `.xmas` returns a red/white/green version of the text
 - **hype** `.meme`, `.h` returns the argument horizontally and vertically
+- **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
+- **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
+- **vending machine** `.vend`, `.vending`, `.vendingmachine`, `.vendor` dispenses a gachapon item
+
+###Chat Triggered
+
+- **cowsay** `.cowsay`, `.cow` returns the text in a speech bubble from a talking cow
+- **cowsay -tux** `.tux`, `.tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
+- **dat boi** `o shit`, `oshit` returns "waddup"
+- **dude weed lmao** `dude` returns "weed lmao"
 - **lol** `lol`, `lok` returns "lol"
 - **questionable** `??` returns "? ???????????????????????????????"
-- **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
 - **maki facts** `5 cute facts about maki`, `5 facts about maki`, `5 cute facts about maki:`, `5 facts about maki:`, `five cute facts about maki`, `five facts about maki`, `five cute facts about maki:`, `five facts about maki:` returns "five" cute facts about MAKI!!!
 - **meme** `meme`, `memes`, `memer` expresses the bot's shared interest in memes
 - **oops** `wops`, `whoops`, `woops` returns "OOPS"
-- **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
-- **vending machine** `vend`, `vending`, `vendingmachine`, `vendor` dispenses a gachapon item
 - **woof** `woof`, `woof!` no furries allowed
 - **zoz** `zoz` returns a zoz variation
 
@@ -41,7 +46,7 @@ Just talk to it:
 - **husbando** `.selfie`, `.self` returns the saved selfie
 - **waifu** `.waifu`, `.wife` returns the saved waifu
 
-###Money
+###Monetary
 
 - **balance** `.owe`, `.balance` checks the balance of the specified user
 - **buy** `.buy` buys an item
