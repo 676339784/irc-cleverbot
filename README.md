@@ -13,9 +13,9 @@ Just talk to it:
 
 ###Public Commands
 
-- **cowsay**: `cowsay`, `cow` returns the text in a speech bubble from a talking cow
+- **cowsay** `cowsay`, `cow` returns the text in a speech bubble from a talking cow
 
-- **cowsay -tux**: `tux`, `tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
+- **cowsay -tux** `tux`, `tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
 
 - **dat boi**: `o shit`, `oshit` returns "waddup"
 
