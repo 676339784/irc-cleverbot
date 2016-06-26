@@ -46,6 +46,8 @@ It will have a semi-intelligent conversation with you. I promise
 - **husbando** `.selfie`, `.self` returns the saved selfie
 - **waifu** `.waifu`, `.wife` returns the saved waifu
 
+Include `@nick` to view data from other nicks, or `-del` or `-rem` to delete yours
+
 ####Monetary
 
 - **balance** `.owe`, `.balance` checks the balance of the specified user
