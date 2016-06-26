@@ -1,5 +1,14 @@
+var fs = require('fs');
+
+var adminfile='admins.txt';
+	admins = fs.readFileSync(adminfile).toString().split('\r\n');
+	info = fs.readFileSync('info.txt').toString().split('\r\n');
+
 function alphanumeric(str) {
 	return str.replace(/[^a-z0-9_-`]/gi, '');
+}
+function contains(array, value) {
+  return array.indexOf(value) > -1;
 }
 
 module.exports = function(client, moduleEvent) {
@@ -8,6 +17,66 @@ module.exports = function(client, moduleEvent) {
 
 		var args = text.split(' '),
 			cmd = (args.splice(0, 1)[0] + ' ').trim();
+		if(contains(admins,from)){
+			switch(cmd){
+				case 'join':
+					args.forEach(chan => {
+						if(chan[0] !== '#'){
+							client.join('#'+chan);
+						}
+						client.join(chan);
+					});
+					break;
+
+				case 'id':
+					client.say("nickserv", "identify " + info[0]);
+					break;
+				case 'say':
+				case 'tell':
+					if(args[0][0] !== '#'){
+						chan='#'+args[0];
+					}
+					args.splice(0,1);
+					client.say(chan, args.join(' '));
+					break;
+
+				case 'reset':
+				case 'rejoin':
+				case 'restart':
+					if(args.length === 0 && to[0] === '#') args[0] = to;
+
+					args.forEach(chan => {
+						if(chan[0] !== '#'){
+							chan='#'+chan;
+						}
+						client.part(chan);
+						setTimeout(fun(chan),4000);
+
+						function fun(var1){
+						    return function(){
+						    	client.join(var1);
+						    }
+						}
+					});
+					break;	
+
+				case 'part':
+					if(args.length === 0 && to[0] === '#') args[0] = to;
+
+					args.forEach(chan => {
+						if(chan[0] !== '#'){
+							client.part('#'+chan);
+						}
+						client.part(chan);
+					});
+					break;
+
+				case 'nick':
+					var nick = alphanumeric(args[0]).substr(0, 16);
+					if(nick !== '')client.say('NICK '+ nick);
+					break;
+			}
+		}
 		switch(cmd) {
 			case 'lok':
 			case 'lol':
@@ -239,7 +308,7 @@ module.exports = function(client, moduleEvent) {
 				client.say(to,'    /*\_   _/*\\');
 				client.say(to,'    \\___)=(___/');
 				break;
-				
+
 			case '.us':
 			case '.ru':
 			case '.uk':
@@ -303,135 +372,5 @@ module.exports = function(client, moduleEvent) {
 		client.join(chan);
 		client.say(chan,"Thanks for inviting me! I'll be at your service. For more information and a list of bot commands, you can visit https://goo.gl/6i1Xby");
 	});
-	client.addListener('message#******', function (from, message) {
-	    console.log(from + ' => #******: ' + message);
-	    		var args = message.split(' '),
-				cmd = (args.splice(0, 1)[0] + ' ').trim();
 
-		switch(cmd) {
-	    	case 'join':
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						client.join('#'+chan);
-					}
-					client.join(chan);
-				});
-				break;
-
-			case 'id':
-				client.say("nickserv", "identify " + '******');
-				break;
-
-			case 'say':
-			case 'tell':
-				if(args[0][0] !== '#'){
-					chan='#'+args[0];
-				}
-				args.splice(0,1);
-				client.say(chan, args.join(' '));
-				break;
-
-			case 'reset':
-			case 'rejoin':
-			case 'restart':
-				if(args.length === 0 && to[0] === '#') args[0] = to;
-
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						chan='#'+chan;
-					}
-					client.part(chan);
-					setTimeout(fun(chan),4000);
-
-					function fun(var1){
-					    return function(){
-					    	client.join(var1);
-					    }
-					}
-				});
-				break;	
-
-			case 'part':
-				if(args.length === 0 && to[0] === '#') args[0] = to;
-
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						client.part('#'+chan);
-					}
-					client.part(chan);
-				});
-				break;
-
-			case 'nick':
-				var nick = alphanumeric(args[0]).substr(0, 16);
-				if(nick !== '')client.say('NICK '+ nick);
-				break;
-		}
-	});
-	client.addListener('message#******', function (from, message) {
-	    console.log(from + ' => #******: ' + message);
-	    		var args = message.split(' '),
-				cmd = (args.splice(0, 1)[0] + ' ').trim();
-
-		switch(cmd) {
-	    	case 'join':
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						client.join('#'+chan);
-					}
-					client.join(chan);
-				});
-				break;
-
-			case 'id':
-				client.say("nickserv", "identify " + '******');
-				break;
-
-			case 'say':
-			case 'tell':
-				if(args[0][0] !== '#'){
-					chan='#'+args[0];
-				}
-				args.splice(0,1);
-				client.say(chan, args.join(' '));
-				break;
-
-			case 'reset':
-			case 'rejoin':
-			case 'restart':
-				if(args.length === 0 && to[0] === '#') args[0] = to;
-
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						chan='#'+chan;
-					}
-					client.part(chan);
-					setTimeout(fun(chan),4000);
-
-					function fun(var1){
-					    return function(){
-					    	client.join(var1);
-					    }
-					}
-				});
-				break;	
-
-			case 'part':
-				if(args.length === 0 && to[0] === '#') args[0] = to;
-
-				args.forEach(chan => {
-					if(chan[0] !== '#'){
-						client.part('#'+chan);
-					}
-					client.part(chan);
-				});
-				break;
-
-			case 'nick':
-				var nick = alphanumeric(args[0]).substr(0, 16);
-				if(nick !== '') client.send('NICK', nick);
-				break;
-
-		}
-	});
 };
