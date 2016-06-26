@@ -26,15 +26,20 @@ Just talk to it:
 - **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
 - **maki facts** `5 cute facts about maki`, `5 facts about maki`, `5 cute facts about maki:`, `5 facts about maki:`, `five cute facts about maki`, `five facts about maki`, `five cute facts about maki:`, `five facts about maki:` returns "five" cute facts about MAKI!!!
 - **meme** `meme`, `memes`, `memer` expresses the bot's shared interest in memes
-- **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
 - **oops** `wops`, `whoops`, `woops` returns "OOPS"
+- **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
+- **vending machine** `vend`, `vending`, `vendingmachine`, `vendor` dispenses a gachapon item
 - **woof** `woof`, `woof!` no furries allowed
 - **zoz** `zoz` returns a zoz variation
 
 ###Personal
 
+- **battlestation** `.battlestation`, `.bullshit`, `.bs` returns the saved battlestation
 - **desktop** `.desktop`, `.dtop`, `.desk` returns the saved desktop
 - **homescreen** `.homescreen`, `.home`, `.homescreens` returns the saved homescreen
+- **husbando** `.husbando`, `.husband` returns the saved husbando
+- **husbando** `.selfie`, `.self` returns the saved selfie
+- **waifu** `.waifu`, `.wife` returns the saved waifu
 
 ###Money
 
@@ -51,6 +56,7 @@ Just talk to it:
 - **part** `.part` parts a channel
 - **reset** `.reset`, `.rejoin`, `.restart` resets the bot in the given channel
 - **say** `.say`, `.join` makes the bot say something in the given channel
+- **story of pomf face** `.storyofpomfface`, `.pomfface`, `.pomf`, `.story` :3
 
 ## Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
