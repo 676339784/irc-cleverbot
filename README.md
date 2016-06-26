@@ -43,8 +43,6 @@ Just talk to it:
 
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
 
-- **sell** `.sell`, `.buy` sells the user in order to fund the bot (only does this on 1/3 of commands)
-
 - **oops** `wops`, `whoops`, `woops` returns "OOPS"
 
 - **woof** `woof`, `woof!` no furries allowed
@@ -53,11 +51,11 @@ Just talk to it:
 
 ###Money
 
-- **owe** `.owe`, `.balance` checks the balance of the specified user
-
-- **sell** `.sell` sells an item
+- **balance** `.owe`, `.balance` checks the balance of the specified user
 
 - **buy** `.buy` buys an item
+
+- **sell** `.sell` sells an item
 
 ###Admin Commands
 
