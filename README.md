@@ -13,7 +13,7 @@ It will have a semi-intelligent conversation with you. I promise
 
 ## Commands
 
-###Public Commands
+####Public Commands
 
 - **eat** `.eat` eats the target argument
 - **flags: red/white/blue** `.us`, `.uk`, `.ru`, `.au`, `.cl`, `.cu`, `.lr`, `.fr`, `.cz` returns a red/white/blue version of the text
@@ -23,7 +23,7 @@ It will have a semi-intelligent conversation with you. I promise
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
 - **vending machine** `.vend`, `.vending`, `.vendingmachine`, `.vendor` dispenses a gachapon item
 
-###Chat Triggered
+####Chat Triggered
 
 - **cowsay** `.cowsay`, `.cow` returns the text in a speech bubble from a talking cow
 - **cowsay -tux** `.tux`, `.tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
@@ -37,7 +37,7 @@ It will have a semi-intelligent conversation with you. I promise
 - **woof** `woof`, `woof!` no furries allowed
 - **zoz** `zoz` returns a zoz variation
 
-###Personal
+####Personal
 
 - **battlestation** `.battlestation`, `.bullshit`, `.bs` returns the saved battlestation
 - **desktop** `.desktop`, `.dtop`, `.desk` returns the saved desktop
@@ -46,13 +46,13 @@ It will have a semi-intelligent conversation with you. I promise
 - **husbando** `.selfie`, `.self` returns the saved selfie
 - **waifu** `.waifu`, `.wife` returns the saved waifu
 
-###Monetary
+####Monetary
 
 - **balance** `.owe`, `.balance` checks the balance of the specified user
 - **buy** `.buy` buys an item
 - **sell** `.sell` sells an item
 
-###Admin Commands
+####Admin Commands
 
 - **admin** `.admin` adds an admin
 - **identify** `.id` manually identifies if the bot has not yet done so
