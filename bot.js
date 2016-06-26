@@ -3,9 +3,9 @@ const config = require('./CONFIG.json');
 var irc = require('irc'),
 	requireall = require('require-all');
 
-var client = new irc.Client(config.irchost, config.name, {
-	userName: config.real,
-	realName: config.name,
+var client = new irc.Client(config.irchost, config.nick,{
+	userName: config.user,
+	realName: config.real,
 	channels: config.channels,
 	floodProtection: true,
 	floodProtectionDelay: 100
@@ -18,8 +18,16 @@ for(var key in botModules) {
 	try {
 		botModules[key](client, config);
 	} catch(ex) {
-		console.error('Error in custom module: ' + key);
+		console.error('Error in custom module:'+ key);
 		console.error(ex);
+	}
+}
+
+setTimeout(func(config.pass),500);
+
+function func(pass){
+	return function(){
+		client.say('nickserv', 'identify '+pass);
 	}
 }
 
