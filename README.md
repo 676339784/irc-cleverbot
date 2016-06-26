@@ -15,6 +15,8 @@ It will have a semi-intelligent conversation with you. I promise
 
 ####Public Commands
 
+- **cowsay** `.cowsay`, `.cow` returns the text in a speech bubble from a talking cow
+- **cowsay -tux** `.tux`, `.tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
 - **eat** `.eat` eats the target argument
 - **flags: red/white/blue** `.us`, `.uk`, `.ru`, `.au`, `.cl`, `.cu`, `.lr`, `.fr`, `.cz` returns a red/white/blue version of the text
 - **flags: red/white/green** `.it`, `.mx`, `.ir`, `.xmas` returns a red/white/green version of the text
@@ -25,8 +27,6 @@ It will have a semi-intelligent conversation with you. I promise
 
 ####Chat Triggered
 
-- **cowsay** `.cowsay`, `.cow` returns the text in a speech bubble from a talking cow
-- **cowsay -tux** `.tux`, `.tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
 - **dat boi** `o shit`, `oshit` returns "waddup"
 - **dude weed lmao** `dude` returns "weed lmao"
 - **lol** `lol`, `lok` returns "lol"
