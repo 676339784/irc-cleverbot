@@ -27,8 +27,6 @@ Just talk to it:
 
 - **flags: red/white/green** `.it`, `.mx`, `.ir`, `.xmas` returns a red/white/green version of the text
 
-- **homescreens** `.home`, `.homescreen`, `.homescreens` returns the website for the /wg/ homescreen inspiration album
-
 - **hype** `.meme`, `.h` returns the argument horizontally and vertically
 
 - **lol** `lol`, `lok` returns "lol"
@@ -49,12 +47,16 @@ Just talk to it:
 
 - **zoz** `zoz` returns a zoz variation
 
+###Personal
+
+- **desktop** `.desktop`, `.dtop`, `.desk` returns the saved desktop
+
+- **homescreen** `.homescreen`, `.home`, `.homescreens` returns the saved homescreen
+
 ###Money
 
 - **balance** `.owe`, `.balance` checks the balance of the specified user
-
 - **buy** `.buy` buys an item
-
 - **sell** `.sell` sells an item
 
 ###Admin Commands
