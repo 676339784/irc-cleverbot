@@ -14,6 +14,16 @@ function contains(array, value) {
 function formatMoney(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+function check(item,from){
+	pfile='userdata/'+item+'/'+from+'.txt';
+	accounts = fs.readFileSync('userdata/'+item+'/0.txt').toString().split('\r\n');
+	if(contains(accounts,from)){
+		return fs.readFileSync(pfile).toString();
+	}
+	else{
+		return 'No '+item+' saved.';
+	}
+}
 
 module.exports = function(client, moduleEvent) {
 	client.addListener('message', (from, to, text, raw) => {
@@ -87,6 +97,17 @@ module.exports = function(client, moduleEvent) {
 					var nick = alphanumeric(args[0]).substr(0, 16);
 					if(nick !== '')client.say('NICK '+ nick);
 					break;
+				case '.storyofpomfface':
+				case '.story':
+				case '.pomf':
+				case '.face':
+					client.say(to,':O C==3');
+					client.say(to,':OC==3');
+					client.say(to,':C==3');
+					client.say(to,':C=3');
+					client.say(to,':C3');
+					client.say(to,':3');
+					break;
 			}
 		}
 		switch(cmd) {
@@ -114,8 +135,6 @@ module.exports = function(client, moduleEvent) {
 					}
 				}
 				else{
-					fs.appendFileSync('userdata/balance/0.txt',from+'\r\n');
-					fs.writeFileSync(pfile,0);
 					client.say(to,from+' has $'+0);
 				}
 				break;
@@ -164,16 +183,112 @@ module.exports = function(client, moduleEvent) {
 				}
 				break;
 
+			
+			case '.home':
+			case '.homescreen':
+			case '.homescreens':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s homescreen: "+check('homescreen',from));
+					}
+					else{
+						fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
+						client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s homescreen: "+check('homescreen',from));
+				}
+				break
+			case '.desk':
+			case '.desktop':
+			case '.dtop':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s desktop: "+check('desktop',from));
+					}
+					else{
+						fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
+						client.say(to,'Desktop saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s desktop: "+check('desktop',from));
+				}
+				break
+			case '.battlestation':
+			case '.bullshit':
+			case '.bs':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s battlestation: "+check('battlestation',from));
+					}
+					else{
+						fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
+						client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s battlestation: "+check('battlestation',from));
+				}
+				break	
+			case '.selfie':
+			case '.self':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s selfie: "+check('selfie',from));
+					}
+					else{
+						fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
+						client.say(to,'Selfie saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s selfie: "+check('selfie',from));
+				}
+				break
+			case '.waifu':
+			case '.wife':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s waifu: "+check('waifu',from));
+					}
+					else{
+						fs.writeFileSync('userdata/waifu/'+from+'.txt',args.join(' '));
+						client.say(to,'Waifu saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s waifu: "+check('waifu',from));
+				}
+				break
+			case '.husbando':
+			case '.husband':
+				if(args.length>0){
+					if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						client.say(to,from+"'s husbando: "+check('husbando',from));
+					}
+					else{
+						fs.writeFileSync('userdata/husbando/'+from+'.txt',args.join(' '));
+						client.say(to,'Husbando saved for '+from+': '+args.join(' '));
+					}
+				}
+				else{
+					client.say(to,from+"'s husbando: "+check('husbando',from));
+				}
+				break
+
 			case 'zoz':
 				list=['zozzle','zim zam','zooperz','zezezez','zimbabwe','shoes on sizzle'];
 				client.say(to,list[Math.floor((Math.random()*6))]);
 				break;
 
-			case '.home':
-			case '.homescreen':
-			case '.homescreens':
-				client.say(to,'http://homescreens.org/');
-				break;
 
 			case '??':
 				client.say(to,'? ???????????????????????????????');
@@ -437,6 +552,17 @@ module.exports = function(client, moduleEvent) {
 					finstr=finstr.concat(' ');
 				});
 				client.say(to,finstr);
+				break;
+			case '.vend':
+			case '.vending':
+			case '.vendingmachine':
+			case '.vendor':
+				if(args.length>0){
+					from=args[0];
+				}
+				adj=[' slightly used',' wet and slimy',' red',' 3D-printed','']; //5
+				nou=[' tabletop lamp',' Audi R8',' toy jack-in-the-box',' beer bottle',' tensile test specimen',' Raf Simons sweater',' roll of toilet paper',' iPhone 6 Plus',' glass eye',' condom that will never be used',' lollipop'];//11
+				client.action(to,'dispenses a'+adj[Math.floor(Math.random()*5)]+nou[Math.floor(Math.random()*11)]+' for '+from);
 				break;
 		}
 	});
