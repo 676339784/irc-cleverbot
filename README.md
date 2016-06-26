@@ -10,13 +10,14 @@ Just talk to it:
     <bot> Hello.
 
 ### Commands
- -**lol** - says "lol"
- ```
- lol
- lok
- ```
- -**zoz** - returns a zoz variation
- `zoz`
+
+-**lol**: says "lol"
+```
+lol
+lok
+```
+-**zoz**: returns a zoz variation
+`zoz`
 
 ### Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
