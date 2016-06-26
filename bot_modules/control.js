@@ -34,6 +34,7 @@ function remove(type,user){
 	for (a in accounts){
 		fs.appendFileSync('userdata/'+type+'/0.txt',accounts[a]+'\r\n');
 	}
+	client.say(user,'Your '+type+' has been removed.');
 }
 
 module.exports = function(client, moduleEvent) {
@@ -44,6 +45,7 @@ module.exports = function(client, moduleEvent) {
 			cmd = (args.splice(0, 1)[0] + ' ').trim();
 		if(contains(admins,from)){
 			switch(cmd){
+				//ADMIN COMMANDS
 				case '.join':
 					args.forEach(chan => {
 						if(chan[0] !== '#'){
@@ -122,10 +124,8 @@ module.exports = function(client, moduleEvent) {
 			}
 		}
 		switch(cmd) {
-			case 'lok':
-			case 'lol':
-				client.say(to,'lol');
-				break;
+
+			//MONETARY
 
 			case '.owe':
 			case '.balance':
@@ -194,6 +194,8 @@ module.exports = function(client, moduleEvent) {
 				}
 				break;
 
+
+			//PERSONAL
 			
 			case '.home':
 			case '.homescreen':
@@ -335,6 +337,13 @@ module.exports = function(client, moduleEvent) {
 				}
 				break
 
+			//CHAT TRIGGERED
+
+			case 'lok':
+			case 'lol':
+				client.say(to,'lol');
+				break;
+
 			case 'zoz':
 				list=['zozzle','zim zam','zooperz','zezezez','zimbabwe','shoes on sizzle'];
 				client.say(to,list[Math.floor((Math.random()*6))]);
@@ -342,19 +351,6 @@ module.exports = function(client, moduleEvent) {
 
 			case '??':
 				client.say(to,'? ???????????????????????????????');
-				break;
-
-			case '.meme':
-			case '.h':
-				var letters = args.join('').trim().substr(0, 16).split('');
-				var string='';
-				for (i = 0; i < letters.length; i++) {
-				    string=string+letters[i]+' ';
-				}
-				client.say(to,string);
-				for (i=1; i<letters.length;i++){
-					client.say(to,letters[i]);
-				}
 				break;
 
 			case 'wops':
@@ -393,23 +389,6 @@ module.exports = function(client, moduleEvent) {
 				}
 				break;
 
-			case '.rape':
-			case '.kill':
-			case '.slap':
-			case '.yiff':
-			case '.lewd':
-				client.say(to, '.rape '+ from);
-				break;
-
-			case '.eat':
-				client.action(to, 'eats ' + args[0]);
-				break;
-
-			case '.quit':
-			case '.leave':
-				client.say(to, 'no');
-				break;
-
 			case 'woof':
 			case 'woof!':
 				client.action(to, 'eats '+ from);
@@ -420,6 +399,10 @@ module.exports = function(client, moduleEvent) {
 			case 'memer':
 				client.say(to, 'i love memes!');
 				break;
+
+
+			//PUBLIC COMMANDS
+
 
 			case '.cow':
 			case '.cowsay':
@@ -603,6 +586,44 @@ module.exports = function(client, moduleEvent) {
 				});
 				client.say(to,finstr);
 				break;
+			case '.eat':
+				client.action(to, 'eats ' + args[0]);
+				break;
+			case '.rape':
+			case '.kill':
+			case '.slap':
+			case '.yiff':
+			case '.lewd':
+				client.say(to, '.rape '+ from);
+				break;
+
+			case '.meme':
+			case '.h':
+				var letters = args.join('').trim().substr(0, 16).split('');
+				var string='';
+				for (i = 0; i < letters.length; i++) {
+				    string=string+letters[i]+' ';
+				}
+				client.say(to,string);
+				for (i=1; i<letters.length;i++){
+					client.say(to,letters[i]);
+				}
+				break;
+			case '.shoot':
+			case '.bang':
+				client.action(to,'shoots '+args[0]+' in the head');
+				break;
+			case '.shill':
+				ret=args.join(' ').toString().toUpperCase();
+				for(i=0;i<Math.floor(Math.random()*3)+2;i++){
+					client.say(to, ret+"!!!");
+				}
+				break;
+			case '.quit':
+			case '.leave':
+				client.say(to, 'no');
+				break;
+
 			case '.vend':
 			case '.vending':
 			case '.vendingmachine':
@@ -623,7 +644,7 @@ module.exports = function(client, moduleEvent) {
 	client.addListener('invite', (chan, from) => {
 		//client.notice(from, 'Thanks ' + from + ' for inviting me to ' + chan);
 		client.join(chan);
-		client.say(chan,"Thanks for inviting me! I'll be at your service. For more information and a list of bot commands, you can visit https://goo.gl/LKHfN8");
+		client.say(chan,"Thanks for inviting me, "+from+"! I'll be at your service. For more information and a list of bot commands, you can visit https://goo.gl/LKHfN8");
 	});
 
 };
