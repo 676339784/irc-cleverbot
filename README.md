@@ -11,13 +11,14 @@ Just talk to it:
 
 ### Commands
 
--**lol**: says "lol"
+-**lol** `lol`,`lok`:says "lol"
 ```
 lol
 lok
 ```
 -**zoz**: returns a zoz variation
-`zoz`
+```zoz
+```
 
 ### Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
