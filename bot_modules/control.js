@@ -14,14 +14,25 @@ function contains(array, value) {
 function formatMoney(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-function check(item,from){
-	pfile='userdata/'+item+'/'+from+'.txt';
-	accounts = fs.readFileSync('userdata/'+item+'/0.txt').toString().split('\r\n');
-	if(contains(accounts,from)){
+function check(type,user){
+	accounts = fs.readFileSync('userdata/'+type+'/0.txt').toString().split('\r\n');
+	if(contains(accounts,user)){
+		pfile='userdata/'+type+'/'+user+'.txt';
 		return fs.readFileSync(pfile).toString();
 	}
 	else{
-		return 'No '+item+' saved.';
+		return 'No '+type+' saved.';
+	}
+}
+function remove(type,user){
+	accounts = fs.readFileSync('userdata/'+type+'/0.txt').toString().split('\r\n');
+	console.log(accounts);
+	accounts.splice(accounts.indexOf(user));
+	console.log(accounts);
+	fs.unlinkSync('userdata/'+type+'/'+user+'.txt');
+	fs.writeFileSync('userdata/'+type+'/0.txt','');
+	for (a in accounts){
+		fs.appendFileSync('userdata/'+type+'/0.txt',accounts[a]+'\r\n');
 	}
 }
 
@@ -188,12 +199,16 @@ module.exports = function(client, moduleEvent) {
 			case '.homescreen':
 			case '.homescreens':
 				if(args.length>0){
-					if(args[0][0]==='@'){
+					if(args[0]==='-del'||args[0]==='-rem'){
+						remove('homescreen',from);
+					}
+					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s homescreen: "+check('homescreen',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/homescreen/0.txt',from);
 						client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
 					}
 					else{
@@ -209,12 +224,16 @@ module.exports = function(client, moduleEvent) {
 			case '.desktop':
 			case '.dtop':
 				if(args.length>0){
-					if(args[0][0]==='@'){
+					if(args[0]==='-del'||args[0]==='-rem'){
+						remove('desktop',from);
+					}
+					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s desktop: "+check('desktop',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/desktop/0.txt',from);
 						client.say(to,'Desktop saved for '+from+': '+args.join(' '));
 					}
 					else{
@@ -230,12 +249,16 @@ module.exports = function(client, moduleEvent) {
 			case '.bullshit':
 			case '.bs':
 				if(args.length>0){
-					if(args[0][0]==='@'){
+					if(args[0]==='-del'||args[0]==='-rem'){
+						remove('battlestation',from);
+					}
+					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s battlestation: "+check('battlestation',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/battlestation/0.txt',from);
 						client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
 					}
 					else{
@@ -250,12 +273,16 @@ module.exports = function(client, moduleEvent) {
 			case '.selfie':
 			case '.self':
 				if(args.length>0){
-					if(args[0][0]==='@'){
+					if(args[0]==='-del'||args[0]==='-rem'){
+						remove('selfie',from);
+					}
+					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s selfie: "+check('selfie',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/selfie/0.txt',from);
 						client.say(to,'Selfie saved for '+from+': '+args.join(' '));
 					}
 					else{
@@ -269,13 +296,17 @@ module.exports = function(client, moduleEvent) {
 				break
 			case '.waifu':
 			case '.wife':
-				if(args.length>0){
+				if(args[0]==='-del'||args[0]==='-rem'){
+						remove('waifu',from);
+					}
+					else if(args.length>0){
 					if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s waifu: "+check('waifu',from));
 					}
 					else{
 						fs.writeFileSync('userdata/waifu/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/waifu/0.txt',from);
 						client.say(to,'Waifu saved for '+from+': '+args.join(' '));
 					}
 				}
@@ -285,13 +316,17 @@ module.exports = function(client, moduleEvent) {
 				break
 			case '.husbando':
 			case '.husband':
-				if(args.length>0){
+				if(args[0]==='-del'||args[0]==='-rem'){
+						remove('husbando',from);
+					}
+					else if(args.length>0){
 					if(args[0][0]==='@'){
 						from=args[0].slice(1);
 						client.say(to,from+"'s husbando: "+check('husbando',from));
 					}
 					else{
 						fs.writeFileSync('userdata/husbando/'+from+'.txt',args.join(' '));
+						fs.appendFileSync('userdata/husbando/0.txt',from);
 						client.say(to,'Husbando saved for '+from+': '+args.join(' '));
 					}
 				}
@@ -304,7 +339,6 @@ module.exports = function(client, moduleEvent) {
 				list=['zozzle','zim zam','zooperz','zezezez','zimbabwe','shoes on sizzle'];
 				client.say(to,list[Math.floor((Math.random()*6))]);
 				break;
-
 
 			case '??':
 				client.say(to,'? ???????????????????????????????');
