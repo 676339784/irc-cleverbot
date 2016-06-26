@@ -192,9 +192,13 @@ module.exports = function(client, moduleEvent) {
 						from=args[0].slice(1);
 						client.say(to,from+"'s homescreen: "+check('homescreen',from));
 					}
-					else{
+					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
 						client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
+					}
+					else{
+						from=args[0];
+						client.say(to,from+"'s homescreen: "+check('homescreen',from));
 					}
 				}
 				else{
@@ -209,9 +213,13 @@ module.exports = function(client, moduleEvent) {
 						from=args[0].slice(1);
 						client.say(to,from+"'s desktop: "+check('desktop',from));
 					}
-					else{
+					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
 						client.say(to,'Desktop saved for '+from+': '+args.join(' '));
+					}
+					else{
+						from=args[0];
+						client.say(to,from+"'s desktop: "+check('desktop',from));
 					}
 				}
 				else{
@@ -226,9 +234,13 @@ module.exports = function(client, moduleEvent) {
 						from=args[0].slice(1);
 						client.say(to,from+"'s battlestation: "+check('battlestation',from));
 					}
-					else{
+					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
 						client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
+					}
+					else{
+						from=args[0];
+						client.say(to,from+"'s battlestation: "+check('battlestation',from));
 					}
 				}
 				else{
@@ -242,9 +254,13 @@ module.exports = function(client, moduleEvent) {
 						from=args[0].slice(1);
 						client.say(to,from+"'s selfie: "+check('selfie',from));
 					}
-					else{
+					else if (args[0].slice(0,4)==='http'){
 						fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
 						client.say(to,'Selfie saved for '+from+': '+args.join(' '));
+					}
+					else{
+						from=args[0];
+						client.say(to,from+"'s selfie: "+check('selfie',from));
 					}
 				}
 				else{
@@ -351,7 +367,7 @@ module.exports = function(client, moduleEvent) {
 				client.say(to, '.rape '+ from);
 				break;
 
-			case 'eat':
+			case '.eat':
 				client.action(to, 'eats ' + args[0]);
 				break;
 
@@ -371,8 +387,8 @@ module.exports = function(client, moduleEvent) {
 				client.say(to, 'i love memes!');
 				break;
 
-			case 'cow':
-			case 'cowsay':
+			case '.cow':
+			case '.cowsay':
 				var len=Math.floor(args.length/3);
 				arg1=args.splice(0,len);
 				arg2=args.splice(0,len);
@@ -432,8 +448,8 @@ module.exports = function(client, moduleEvent) {
 				client.say(to,'                ||----w |');
 				client.say(to,'                ||     ||');
 				break;
-			case 'tux':
-			case 'tuxsay':
+			case '.tux':
+			case '.tuxsay':
 			case '-tux':
 				var len=Math.floor(args.length/3);
 				arg1=args.splice(0,len);
@@ -561,16 +577,19 @@ module.exports = function(client, moduleEvent) {
 					from=args[0];
 				}
 				adj=[' slightly used',' wet and slimy',' red',' 3D-printed','']; //5
-				nou=[' tabletop lamp',' Audi R8',' toy jack-in-the-box',' beer bottle',' tensile test specimen',' Raf Simons sweater',' roll of toilet paper',' iPhone 6 Plus',' glass eye',' condom that will never be used',' lollipop'];//11
-				client.action(to,'dispenses a'+adj[Math.floor(Math.random()*5)]+nou[Math.floor(Math.random()*11)]+' for '+from);
+				nou=[' tabletop lamp',' Audi R8',' toy jack-in-the-box',' beer bottle',' tensile test specimen',' Raf Simons sweater',' roll of toilet paper',' iPhone 6 Plus',' glass eye',' condom that will never be used',' lollipop',' dragon dildo'];//12
+				client.action(to,'dispenses a'+adj[Math.floor(Math.random()*5)]+nou[Math.floor(Math.random()*12)]+' for '+from);
 				break;
+			case '.help':
+			case '.commands':
+				client.say(to,'For help and commands, visit https://goo.gl/LKHfN8');
 		}
 	});
 	
 	client.addListener('invite', (chan, from) => {
 		//client.notice(from, 'Thanks ' + from + ' for inviting me to ' + chan);
 		client.join(chan);
-		client.say(chan,"Thanks for inviting me! I'll be at your service. For more information and a list of bot commands, you can visit https://goo.gl/6i1Xby");
+		client.say(chan,"Thanks for inviting me! I'll be at your service. For more information and a list of bot commands, you can visit https://goo.gl/LKHfN8");
 	});
 
 };
