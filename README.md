@@ -14,43 +14,26 @@ Just talk to it:
 ###Public Commands
 
 - **cowsay** `cowsay`, `cow` returns the text in a speech bubble from a talking cow
-
 - **cowsay -tux** `tux`, `tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
-
 - **dat boi** `o shit`, `oshit` returns "waddup"
-
 - **dude weed lmao** `dude` returns "weed lmao"
-
 - **eat** `eat` eats the target argument
-
 - **flags: red/white/blue** `.us`, `.uk`, `.ru`, `.au`, `.cl`, `.cu`, `.lr`, `.fr`, `.cz` returns a red/white/blue version of the text
-
 - **flags: red/white/green** `.it`, `.mx`, `.ir`, `.xmas` returns a red/white/green version of the text
-
 - **hype** `.meme`, `.h` returns the argument horizontally and vertically
-
 - **lol** `lol`, `lok` returns "lol"
-
 - **questionable** `??` returns "? ???????????????????????????????"
-
 - **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
-
 - **maki facts** `5 cute facts about maki`, `5 facts about maki`, `5 cute facts about maki:`, `5 facts about maki:`, `five cute facts about maki`, `five facts about maki`, `five cute facts about maki:`, `five facts about maki:` returns "five" cute facts about MAKI!!!
-
 - **meme** `meme`, `memes`, `memer` expresses the bot's shared interest in memes
-
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
-
 - **oops** `wops`, `whoops`, `woops` returns "OOPS"
-
 - **woof** `woof`, `woof!` no furries allowed
-
 - **zoz** `zoz` returns a zoz variation
 
 ###Personal
 
 - **desktop** `.desktop`, `.dtop`, `.desk` returns the saved desktop
-
 - **homescreen** `.homescreen`, `.home`, `.homescreens` returns the saved homescreen
 
 ###Money
@@ -62,17 +45,11 @@ Just talk to it:
 ###Admin Commands
 
 - **admin** `.admin` adds an admin
-
 - **identify** `.id` manually identifies if the bot has not yet done so
-
 - **join** `.join` joins a channel
-
 - **nick** `.nick` changes the nick of the bot
-
 - **part** `.part` parts a channel
-
 - **reset** `.reset`, `.rejoin`, `.restart` resets the bot in the given channel
-
 - **say** `.say`, `.join` makes the bot say something in the given channel
 
 ## Configuration
