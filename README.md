@@ -52,7 +52,7 @@ It will have a semi-intelligent conversation with you. I promise
 - **buy** `.buy` buys an item
 - **sell** `.sell` sells an item
 
-####Admin Commands
+####Admin
 
 - **admin** `.admin` adds an admin
 - **identify** `.id` manually identifies if the bot has not yet done so
