@@ -3,15 +3,15 @@ An IRC bot that speaks using [cleverbot-node](https://github.com/fojas/cleverbot
 
 Install by running `npm install` and then `node bot.js`.
 
-### Talking to the bot
+## Talking to the bot
 Just talk to it:
 
     <realhuman> bot: hello
     <bot> Hello.
 
-### Commands
+## Commands
 
-#Public Commands
+###Public Commands
 
 -**cowsay**: `cowsay`, `cow` returns the text in a speech bubble from a talking cow
 
@@ -51,7 +51,7 @@ Just talk to it:
 
 -**zoz**: `zoz` returns a zoz variation
 
-#Admin Commands
+###Admin Commands
 
 -**identify**: `id` manually identifies if the bot has not yet done so
 
@@ -65,5 +65,5 @@ Just talk to it:
 
 -**say**: `say`, `join` makes the bot say something in the given channel
 
-### Configuration
+## Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
