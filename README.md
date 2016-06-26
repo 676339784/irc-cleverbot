@@ -53,17 +53,19 @@ Just talk to it:
 
 ###Admin Commands
 
-- **identify** `id` manually identifies if the bot has not yet done so
+- **admin** `.admin` adds an admin
 
-- **join** `join` joins a channel
+- **identify** `.id` manually identifies if the bot has not yet done so
 
-- **nick** `nick` changes the nick of the bot
+- **join** `.join` joins a channel
 
-- **part** `part` parts a channel
+- **nick** `.nick` changes the nick of the bot
 
-- **reset** `reset`, `rejoin`, `restart` resets the bot in the given channel
+- **part** `.part` parts a channel
 
-- **say** `say`, `join` makes the bot say something in the given channel
+- **reset** `.reset`, `.rejoin`, `.restart` resets the bot in the given channel
+
+- **say** `.say`, `.join` makes the bot say something in the given channel
 
 ## Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
