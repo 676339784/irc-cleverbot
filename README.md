@@ -23,6 +23,8 @@ It will have a semi-intelligent conversation with you. I promise
 - **hype** `.meme`, `.h` returns the argument horizontally and vertically
 - **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
+- **shill** `.shill` shills a word a few times
+- **shoot** `.shoot` shoots a user and kills them
 - **vending machine** `.vend`, `.vending`, `.vendingmachine`, `.vendor` dispenses a gachapon item
 
 ####Chat Triggered
