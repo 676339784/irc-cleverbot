@@ -29,9 +29,11 @@ Just talk to it:
 
 -**homescreens**: `.home`, `.homescreen`, `.homescreens` returns the website for the /wg/ homescreen inspiration album
 
--**hype*: `.meme`, `.h` returns the argument horizontally and vertically
+-**hype**: `.meme`, `.h` returns the argument horizontally and vertically
 
 -**lol**: `lol`, `lok` returns "lol"
+
+-**questionable**: `??` returns "? ???????????????????????????????"
 
 -**quit**: `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
 
@@ -48,8 +50,6 @@ Just talk to it:
 -**woof**: `woof`, `woof!` no furries allowed
 
 -**zoz**: `zoz` returns a zoz variation
-
--**?**: `??` returns "? ???????????????????????????????"
 
 #Admin Commands
 
