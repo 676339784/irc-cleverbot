@@ -41,7 +41,7 @@ Install by running `npm install` and then `node bot.js`.
  - returns "lol"
 - **questionable** `??` 
  - returns "? ???????????????????????????????"
-- **maki facts** `5 cute facts about maki`, `5 facts about maki`, `5 cute facts about maki:`, `5 facts about maki:`, `five cute facts about maki`, `five facts about maki`, `five cute facts about maki:`, `five facts about maki:` 
+- **maki facts** `5 cute facts about maki`, `5 facts about maki`, `5 cute facts about maki:`, `5 facts about maki:`, `five cute facts about maki`, `five facts about maki`, `five cute facts about maki:`, `five facts about maki:`, `🍅`
  - returns "five" cute facts about MAKI!!!
 - **meme** `meme`, `memes`, `memer` 
  - expresses the bot's shared interest in memes
