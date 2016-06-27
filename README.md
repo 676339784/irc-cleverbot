@@ -65,7 +65,7 @@ Just talk to it:
     <realhuman> bot: hello, how are you
     <bot> I'm doing well, thanks
 
-It will have a semi-intelligent conversation with you. I promise
+It will have a semi-intelligent conversation with you. I promise. It will also start singing Let It Go from Frozen if you push it to.
 
 ## Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
