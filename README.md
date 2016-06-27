@@ -20,7 +20,8 @@ Install by running `npm install` and then `node bot.js`.
  - brings the user to this page
 - **london** `.london`, `.meme`, `.h` | `arg0`
  - returns the argument `arg0` horizontally and vertically
-- **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
+- **quit** `.quit`, `.leave` 
+ - asks the bot to leave the current channel (not guaranteed to follow directions)
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` | `arg0`
  - rapes the user `arg0` to discourage future innapropriate behavior (fight fire with fire)
 - **shill** `.shill` | `arg0`
@@ -81,11 +82,12 @@ Include `@nick` to view data from other nicks, `your link` to save your own link
 
 - **admin** `.admin` | `arg0`
  - makes user `arg0` an admin
-- **identify** `.id` manually identifies if the bot has not yet done so
+- **identify** `.id` 
+ - manually identifies if the bot has not yet done so
 - **join** `.join` | `#arg0`, `arg0`
  - joins a channel `arg0`
 - **nick** `.nick` | `arg0`
- - changes the nick `arg0` of the bot
+ - changes the nick of the bot to `arg0`
 - **part** `.part` | `#arg0`, `arg0`
  - parts a channel `arg0`
 - **reset** `.reset`, `.rejoin`, `.restart` | `#arg0`, `arg0`
