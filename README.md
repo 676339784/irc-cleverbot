@@ -6,7 +6,7 @@ Install by running `npm install` and then `node bot.js`.
 
 ####Public Commands
 
-- **cowsay** `.cowsay`, `.cow` 
+- **cowsay** `.cowsay`, `.cow` | `text`
  - returns the text in a speech bubble from a talking cow
 - **cowsay -tux** `.tux`, `.tuxsay`, `-tux` returns the text in a speech bubble from a talking penguin
 - **eat** `.eat` eats the target argument
