@@ -42,7 +42,7 @@ module.exports = function(client, moduleEvent) {
 		if(to === client.nick) to = from;
 
 		var args = text.split(' '),
-			cmd = (args.splice(0, 1)[0] + ' ').trim();
+			cmd = (args.splice(0, 1)[0] + ' ').trim().toLowerCase();
 		if(contains(admins,from)){
 			switch(cmd){
 				//ADMIN COMMANDS
@@ -375,20 +375,13 @@ module.exports = function(client, moduleEvent) {
 
 			case '5':
 			case 'five':
-				if (args[0]=='cute' && (args[3]=='maki' || args[3]=='maki:')){
-					client.say(to, "- She's a girl!");
-					client.say(to, "- She's a tomato!");
-					client.say(to, "- I love her!!!!!");
-					client.say(to, "- Maki!!!!!!!!!!!");
-				}
-				else if (args[0]=='facts' && (args[2]=='maki' || args[2]=='maki:')){
+				if ((args[0]==='facts' && (args[2]==='maki' || args[2]==='maki:'))||(args[0]==='cute' && (args[3]==='maki' || args[3]==='maki:'))){
 					client.say(to, "- She's a girl!");
 					client.say(to, "- She's a tomato!");
 					client.say(to, "- I love her!!!!!");
 					client.say(to, "- Maki!!!!!!!!!!!");
 				}
 				break;
-
 			case 'woof':
 			case 'woof!':
 				client.action(to, 'eats '+ from);
@@ -597,6 +590,7 @@ module.exports = function(client, moduleEvent) {
 				client.say(to, '.rape '+ from);
 				break;
 
+			case '.london':
 			case '.meme':
 			case '.h':
 				var letters = args.join('').trim().substr(0, 16).split('');
@@ -611,7 +605,8 @@ module.exports = function(client, moduleEvent) {
 				break;
 			case '.shoot':
 			case '.bang':
-				client.action(to,'shoots '+args[0]+' in the head');
+				parts=['head','foot','chest','hand','stomach','leg'];//6
+				client.action(to,'shoots '+args[0]+' in the '+parts[Math.floor(Math.random()*parts.length)]);
 				break;
 			case '.shill':
 				ret=args.join(' ').toString().toUpperCase();
@@ -631,13 +626,14 @@ module.exports = function(client, moduleEvent) {
 				if(args.length>0){
 					from=args[0];
 				}
-				adj=[' slightly used',' wet and slimy',' red',' 3D-printed','']; //5
+				adj=[' slightly used',' wet and slimy',' red',' 3D-printed',' broken','']; //6
 				nou=[' tabletop lamp',' Audi R8',' toy jack-in-the-box',' beer bottle',' tensile test specimen',' Raf Simons sweater',' roll of toilet paper',' iPhone 6 Plus',' glass eye',' condom that will never be used',' lollipop',' dragon dildo'];//12
-				client.action(to,'dispenses a'+adj[Math.floor(Math.random()*5)]+nou[Math.floor(Math.random()*12)]+' for '+from);
+				client.action(to,'dispenses a'+adj[Math.floor(Math.random()*adj.length)]+nou[Math.floor(Math.random()*nou.length)]+' for '+from);
 				break;
 			case '.help':
 			case '.commands':
 				client.say(to,'For help and commands, visit https://goo.gl/LKHfN8');
+				break;
 		}
 	});
 	
