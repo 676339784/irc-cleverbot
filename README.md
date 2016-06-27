@@ -21,7 +21,7 @@ It will have a semi-intelligent conversation with you. I promise
 - **flags: red/white/blue** `.us`, `.uk`, `.ru`, `.au`, `.cl`, `.cu`, `.lr`, `.fr`, `.cz` returns a red/white/blue version of the text
 - **flags: red/white/green** `.it`, `.mx`, `.ir`, `.xmas` returns a red/white/green version of the text
 - **help** `.help`, `.commands` brings the user to this page
-- **hype** `.meme`, `.h` returns the argument horizontally and vertically
+- **london** `.london`, `.meme`, `.h` returns the argument horizontally and vertically
 - **quit** `.quit`, `.leave` asks the bot to leave the current channel (not guaranteed to follow directions)
 - **rape** `.rape`, `.kill`, `.slap`, `.yiff`, `.lewd` rapes the user to discourage future innapropriate behavior (fight fire with fire)
 - **shill** `.shill` shills a word a few times
