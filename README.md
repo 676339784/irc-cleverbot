@@ -1,15 +1,6 @@
 # uquubot
 An IRC bot that speaks using [cleverbot-node](https://github.com/fojas/cleverbot-node).
-
 Install by running `npm install` and then `node bot.js`.
-
-## Talking to the bot
-Just talk to it:
-
-    <realhuman> bot: hello
-    <bot> Hello.
-
-It will have a semi-intelligent conversation with you. I promise
 
 ## Commands
 
@@ -67,6 +58,14 @@ Include `@nick` to view data from other nicks, or `-del` or `-rem` to delete you
 - **reset** `.reset`, `.rejoin`, `.restart` resets the bot in the given channel
 - **say** `.say`, `.join` makes the bot say something in the given channel
 - **story of pomf face** `.storyofpomfface`, `.pomfface`, `.pomf`, `.story` :3
+
+## Talking to the bot
+Just talk to it:
+
+    <realhuman> bot: hello, how are you
+    <bot> I'm doing well, thanks
+
+It will have a semi-intelligent conversation with you. I promise
 
 ## Configuration
 You can change nick, channel list and irc host in `CONFIG.json`. Try not to break the JSON file.
