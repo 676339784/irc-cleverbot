@@ -90,7 +90,7 @@ Include `@nick` to view data from other nicks, `your link` to save your own link
  - changes the nick of the bot to `arg0`
 - **part** `.part` | `#arg0`, `arg0`
  - parts a channel `arg0`
-- **reset** `.reset`, `.rejoin`, `.restart` | `#arg0`, `arg0`
+- **reset** `.reset`, `.rejoin`, `.restart`,`.cycle` | `#arg0`, `arg0`
  - resets the bot in the given channel `arg0`
 - **say** `.say`, `.join` | `#arg0`, `arg0` | `arg1`
  - makes the bot say text `arg1` in the given channel `arg0`
