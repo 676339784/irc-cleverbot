@@ -1,9 +1,10 @@
 var fs = require('fs');
-
-var adminfile='admins.txt';
+	adminfile='admins.txt';
 	admins = fs.readFileSync(adminfile).toString().split('\r\n');
 	info = fs.readFileSync('info.txt').toString().split('\r\n');
 	chan='';
+	LastFmNode = require('lastfm').LastFmNode;
+	lastfm = new LastFmNode({api_key:info[1],secret:info[2],useragent:''});
 
 function alphanumeric(str) {
 	return str.replace(/[^a-z0-9_-`]/gi, '');
@@ -34,6 +35,14 @@ function remove(type,user){
 		fs.appendFileSync('userdata/'+type+'/0.txt',accounts[a]+'\r\n');
 	}
 	client.say(user,'Your '+type+' has been removed.');
+}
+function nowPlaying(client,to,name){
+	var trackStream = lastfm.stream(name);
+	trackStream.on('nowPlaying', function(track) {
+  		client.say(to,name+' is listening to "' + track.name+'" by '+track.artist['#text']+' from the album '+track.album['#text']);
+	});
+	trackStream.start();
+	trackStream.stop();
 }
 
 module.exports = function(client, moduleEvent) {
@@ -131,7 +140,6 @@ module.exports = function(client, moduleEvent) {
 		switch(cmd) {
 
 			//MONETARY
-
 			case '.owe':
 			case '.balance':
 				if(args.length>0){
@@ -214,9 +222,15 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s homescreen: "+check('homescreen',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
-						fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/homescreen/0.txt',from);
-						client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
+						if(check('homescreen',from)==='No homescreen saved.'){
+							fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/homescreen/0.txt',from+'\r\n');
+							client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/homescreen/'+from+'.txt',args.join(' '));
+							client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
+						}
 					}
 					else{
 						if(args.length>0){
@@ -228,7 +242,7 @@ module.exports = function(client, moduleEvent) {
 				else{
 					client.say(to,from+"'s homescreen: "+check('homescreen',from));
 				}
-				break
+				break;
 			case '.desk':
 			case '.desktop':
 			case '.dtop':
@@ -241,9 +255,15 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s desktop: "+check('desktop',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
-						fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/desktop/0.txt',from);
-						client.say(to,'Desktop saved for '+from+': '+args.join(' '));
+						if(check('desktop',from)==='No desktop saved.'){
+							fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/desktop/0.txt',from+'\r\n');
+							client.say(to,'Desktop saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/desktop/'+from+'.txt',args.join(' '));
+							client.say(to,'Desktop saved for '+from+': '+args.join(' '));
+						}
 					}
 					else{
 						if(args.length>0){
@@ -255,7 +275,7 @@ module.exports = function(client, moduleEvent) {
 				else{
 					client.say(to,from+"'s desktop: "+check('desktop',from));
 				}
-				break
+				break;
 			case '.battlestation':
 			case '.bullshit':
 			case '.bs':
@@ -268,9 +288,15 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s battlestation: "+check('battlestation',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
-						fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/battlestation/0.txt',from);
-						client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
+						if(check('battlestation',from)==='No battlestation saved.'){
+							fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/battlestation/0.txt',from+'\r\n');
+							client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/battlestation/'+from+'.txt',args.join(' '));
+							client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
+						}
 					}
 					else{
 						if(args.length>0){
@@ -282,7 +308,7 @@ module.exports = function(client, moduleEvent) {
 				else{
 					client.say(to,from+"'s battlestation: "+check('battlestation',from));
 				}
-				break	
+				break;
 			case '.selfie':
 			case '.self':
 				if(args.length>0){
@@ -294,9 +320,15 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s selfie: "+check('selfie',from));
 					}
 					else if (args[0].slice(0,4)==='http'){
-						fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/selfie/0.txt',from);
-						client.say(to,'Selfie saved for '+from+': '+args.join(' '));
+						if(check('selfie',from)==='No selfie saved.'){
+							fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/selfie/0.txt',from+'\r\n');
+							client.say(to,'Selfie saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/selfie/'+from+'.txt',args.join(' '));
+							client.say(to,'Selfie saved for '+from+': '+args.join(' '));
+						}
 					}
 					else{
 						if(args.length>0){
@@ -308,7 +340,7 @@ module.exports = function(client, moduleEvent) {
 				else{
 					client.say(to,from+"'s selfie: "+check('selfie',from));
 				}
-				break
+				break;
 			case '.waifu':
 			case '.wife':
 				if(args[0]==='-del'||args[0]==='-rem'){
@@ -320,15 +352,21 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s waifu: "+check('waifu',from));
 					}
 					else{
-						fs.writeFileSync('userdata/waifu/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/waifu/0.txt',from);
-						client.say(to,'Waifu saved for '+from+': '+args.join(' '));
+						if(check('waifu',from)==='No waifu saved.'){
+							fs.writeFileSync('userdata/waifu/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/waifu/0.txt',from+'\r\n');
+							client.say(to,'Waifu saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/waifu/'+from+'.txt',args.join(' '));
+							client.say(to,'Waifu saved for '+from+': '+args.join(' '));
+						}
 					}
 				}
 				else{
 					client.say(to,from+"'s waifu: "+check('waifu',from));
 				}
-				break
+				break;
 			case '.husbando':
 			case '.husband':
 				if(args[0]==='-del'||args[0]==='-rem'){
@@ -340,15 +378,21 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,from+"'s husbando: "+check('husbando',from));
 					}
 					else{
-						fs.writeFileSync('userdata/husbando/'+from+'.txt',args.join(' '));
-						fs.appendFileSync('userdata/husbando/0.txt',from);
-						client.say(to,'Husbando saved for '+from+': '+args.join(' '));
+						if(check('husbando',from)==='No husbando saved.'){
+							fs.writeFileSync('userdata/husbando/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/husbando/0.txt',from+'\r\n');
+							client.say(to,'Husbando saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/husbando/'+from+'.txt',args.join(' '));
+							client.say(to,'Husbando saved for '+from+': '+args.join(' '));
+						}
 					}
 				}
 				else{
 					client.say(to,from+"'s husbando: "+check('husbando',from));
 				}
-				break
+				break;
 
 			//CHAT TRIGGERED
 
@@ -647,6 +691,46 @@ module.exports = function(client, moduleEvent) {
 			case '.commands':
 				client.say(to,'For help and commands, visit https://goo.gl/LKHfN8');
 				break;
+			case '.np':
+			case '.playing':
+				if(args.length>0){
+					if(args[0]==='-del'||args[0]==='-rem'){
+						remove('lastfm',from);
+					}
+					else if(args[0][0]==='@'){
+						from=args[0].slice(1);
+						if(check('lastfm',from)==='No lastfm saved.'){
+							client.say(to,'No last.fm saved.');
+						}
+						else{
+							nowPlaying(client,to,check('lastfm',from));
+						}
+					}
+					else{
+						if(check('lastfm',from)==='No lastfm saved.'){
+							fs.writeFileSync('userdata/lastfm/'+from+'.txt',args.join(' '));
+							fs.appendFileSync('userdata/lastfm/0.txt',from+'\r\n');
+							client.say(to,'Last.fm saved for '+from+': '+args.join(' '));
+						}
+						else{
+							fs.writeFileSync('userdata/lastfm/'+from+'.txt',args.join(' '));
+							client.say(to,'Last.fm saved for '+from+': '+args.join(' '));
+						}
+					}
+				}
+				else{
+					if(check('lastfm',from)==='No lastfm saved.'){
+						client.say(to,'No last.fm saved.');
+					}
+					else{
+						nowPlaying(client,to,check('lastfm',from));
+					}
+				}
+				break
+
+
+				
+			break;
 		}
 	});
 	
