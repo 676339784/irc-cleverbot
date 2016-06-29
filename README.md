@@ -82,6 +82,8 @@ Include `@nick` to view data from other nicks, `your link` to save your own link
 
 - **admin** `.admin` | `arg0`
  - makes user `arg0` an admin
+- **crash**  `.crash`| `.break`
+ - crashes the bot and ends the program
 - **identify** `.id` 
  - manually identifies if the bot has not yet done so
 - **join** `.join` | `#arg0`, `arg0`
