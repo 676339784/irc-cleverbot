@@ -24,11 +24,9 @@ function check(type,user){
 		return 'No '+type+' saved.';
 	}
 }
-function remove(type,user){
+function remove(client,type,user){
 	accounts = fs.readFileSync('userdata/'+type+'/0.txt').toString().split('\r\n');
-	console.log(accounts);
 	accounts.splice(accounts.indexOf(user));
-	console.log(accounts);
 	fs.unlinkSync('userdata/'+type+'/'+user+'.txt');
 	fs.writeFileSync('userdata/'+type+'/0.txt','');
 	for (a in accounts){
@@ -39,7 +37,7 @@ function remove(type,user){
 function nowPlaying(client,to,name){
 	var trackStream = lastfm.stream(name);
 	trackStream.on('nowPlaying', function(track) {
-  		client.say(to,name+' is listening to "' + track.name+'" by '+track.artist['#text']+' from the album '+track.album['#text']);
+  		client.say(to,name+' is listening to \x1F' + track.name+'\x1F by \x02'+track.artist['#text']+'\x02 from the album \x1D'+track.album['#text']+'\x1D');
 	});
 	trackStream.start();
 	trackStream.stop();
@@ -215,7 +213,7 @@ module.exports = function(client, moduleEvent) {
 			case '.homescreens':
 				if(args.length>0){
 					if(args[0]==='-del'||args[0]==='-rem'){
-						remove('homescreen',from);
+						remove(client,'homescreen',from);
 					}
 					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
@@ -248,7 +246,7 @@ module.exports = function(client, moduleEvent) {
 			case '.dtop':
 				if(args.length>0){
 					if(args[0]==='-del'||args[0]==='-rem'){
-						remove('desktop',from);
+						remove(client,'desktop',from);
 					}
 					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
@@ -281,7 +279,7 @@ module.exports = function(client, moduleEvent) {
 			case '.bs':
 				if(args.length>0){
 					if(args[0]==='-del'||args[0]==='-rem'){
-						remove('battlestation',from);
+						remove(client,'battlestation',from);
 					}
 					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
@@ -313,7 +311,7 @@ module.exports = function(client, moduleEvent) {
 			case '.self':
 				if(args.length>0){
 					if(args[0]==='-del'||args[0]==='-rem'){
-						remove('selfie',from);
+						remove(client,'selfie',from);
 					}
 					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
@@ -344,7 +342,7 @@ module.exports = function(client, moduleEvent) {
 			case '.waifu':
 			case '.wife':
 				if(args[0]==='-del'||args[0]==='-rem'){
-						remove('waifu',from);
+						remove(client,'waifu',from);
 					}
 					else if(args.length>0){
 					if(args[0][0]==='@'){
@@ -370,7 +368,7 @@ module.exports = function(client, moduleEvent) {
 			case '.husbando':
 			case '.husband':
 				if(args[0]==='-del'||args[0]==='-rem'){
-						remove('husbando',from);
+						remove(client,'husbando',from);
 					}
 					else if(args.length>0){
 					if(args[0][0]==='@'){
@@ -695,7 +693,7 @@ module.exports = function(client, moduleEvent) {
 			case '.playing':
 				if(args.length>0){
 					if(args[0]==='-del'||args[0]==='-rem'){
-						remove('lastfm',from);
+						remove(client,'lastfm',from);
 					}
 					else if(args[0][0]==='@'){
 						from=args[0].slice(1);
@@ -726,10 +724,7 @@ module.exports = function(client, moduleEvent) {
 						nowPlaying(client,to,check('lastfm',from));
 					}
 				}
-				break
-
-
-				
+				break				
 			break;
 		}
 	});
