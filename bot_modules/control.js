@@ -370,7 +370,7 @@ module.exports = function(client, moduleEvent) {
 				break;
 
 			case 'o':
-				if (args[0].toLowerCase()=='shit'){
+				if (args.length>0 && args[0].toLowerCase()=='shit'){
 					client.say(to,'waddup');
 				}
 				break;
