@@ -53,7 +53,10 @@ module.exports = function(client, moduleEvent) {
 						client.join(chan);
 					});
 					break;
-
+				case '.crash':
+				case '.break':
+					terminate();
+					break;
 				case '.id':
 					client.say("nickserv", "identify " + info[0]);
 					break;
