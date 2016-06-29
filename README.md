@@ -62,7 +62,9 @@ Install by running `npm install` and then `node bot.js`.
  - returns the saved homescreen
 - **husbando** `.husbando`, `.husband` | `arg0`
  - returns the saved husbando
-- **husbando** `.selfie`, `.self` | `arg0`
+- **last.fm** `.np`, `.playing` | `arg0`
+ - returns the now-playing information from last.fm
+- **selfie** `.selfie`, `.self` | `arg0`
  - returns the saved selfie
 - **waifu** `.waifu`, `.wife` | `arg0`
  - returns the saved waifu
