@@ -42,6 +42,7 @@ module.exports = function(client, moduleEvent) {
 
 		var args = text.split(' '),
 			cmd = (args.splice(0, 1)[0] + ' ').trim().toLowerCase();
+			args[0]=args[0].trim();
 		if(contains(admins,from)){
 			switch(cmd){
 				//ADMIN COMMANDS
@@ -58,8 +59,11 @@ module.exports = function(client, moduleEvent) {
 					client.say("nickserv", "identify " + info[0]);
 					break;
 				case '.admin':
-					fs.appendFileSync(adminfile,args[0]+'\r\n');
-					admins = fs.readFileSync(adminfile).toString().split('\r\n');
+					args=args[0].trim();
+					if(args!==''){
+						fs.appendFileSync(adminfile,args[0]+'\r\n');
+						admins = fs.readFileSync(adminfile).toString().split('\r\n');
+					}
 					break;
 				case '.say':
 				case '.tell':
@@ -130,9 +134,9 @@ module.exports = function(client, moduleEvent) {
 			case '.owe':
 			case '.balance':
 				args=args[0].trim();
-					if(args!==''){
-						from=args[0];
-					}
+				if(args!==''){
+					from=args[0];
+				}
 				pfile='userdata/balance/'+from+'.txt';
 				accounts = fs.readFileSync('userdata/balance/0.txt').toString().split('\r\n');
 				if(contains(accounts,from)){
