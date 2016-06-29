@@ -40,9 +40,8 @@ module.exports = function(client, moduleEvent) {
 	client.addListener('message', (from, to, text, raw) => {
 		if(to === client.nick) to = from;
 
-		var args = text.split(' '),
+		var args = text.trim().split(' '),
 			cmd = (args.splice(0, 1)[0] + ' ').trim().toLowerCase();
-			args[0]=args[0].trim();
 		if(contains(admins,from)){
 			switch(cmd){
 				//ADMIN COMMANDS
@@ -59,8 +58,7 @@ module.exports = function(client, moduleEvent) {
 					client.say("nickserv", "identify " + info[0]);
 					break;
 				case '.admin':
-					args=args[0].trim();
-					if(args!==''){
+					if(args.length>0){
 						fs.appendFileSync(adminfile,args[0]+'\r\n');
 						admins = fs.readFileSync(adminfile).toString().split('\r\n');
 					}
@@ -133,8 +131,7 @@ module.exports = function(client, moduleEvent) {
 
 			case '.owe':
 			case '.balance':
-				args=args[0].trim();
-				if(args!==''){
+				if(args.length>0){
 					from=args[0];
 				}
 				pfile='userdata/balance/'+from+'.txt';
@@ -219,8 +216,7 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,'Homescreen saved for '+from+': '+args.join(' '));
 					}
 					else{
-						args=args[0].trim();
-						if(args!==''){
+						if(args.length>0){
 							from=args[0];
 						}
 						client.say(to,from+"'s homescreen: "+check('homescreen',from));
@@ -247,8 +243,7 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,'Desktop saved for '+from+': '+args.join(' '));
 					}
 					else{
-						args=args[0].trim();
-						if(args!==''){
+						if(args.length>0){
 							from=args[0];
 						}
 						client.say(to,from+"'s desktop: "+check('desktop',from));
@@ -275,8 +270,7 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,'Battlestation saved for '+from+': '+args.join(' '));
 					}
 					else{
-						args=args[0].trim();
-						if(args!==''){
+						if(args.length>0){
 							from=args[0];
 						}
 						client.say(to,from+"'s battlestation: "+check('battlestation',from));
@@ -302,8 +296,7 @@ module.exports = function(client, moduleEvent) {
 						client.say(to,'Selfie saved for '+from+': '+args.join(' '));
 					}
 					else{
-						args=args[0].trim();
-						if(args!==''){
+						if(args.length>0){
 							from=args[0];
 						}
 						client.say(to,from+"'s selfie: "+check('selfie',from));
@@ -640,8 +633,7 @@ module.exports = function(client, moduleEvent) {
 			case '.vending':
 			case '.vendingmachine':
 			case '.vendor':
-				args=args[0].trim();
-				if(args!==''){
+				if(args.length>0){
 					from=args[0];
 				}
 				adj=[' slightly used',' wet and slimy',' red',' 3D-printed',' broken','']; //6
