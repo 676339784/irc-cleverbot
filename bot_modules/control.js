@@ -474,6 +474,7 @@ module.exports = function(client, moduleEvent) {
 			
 			case 'yeezus':
 				client.say(to, 'JUST ROSE AGAIN');
+				break;
 
 
 			//PUBLIC COMMANDS
