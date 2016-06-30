@@ -400,13 +400,15 @@ module.exports = function(client, moduleEvent) {
 			case ':^(':
 				client.say(to, ':^^^^(');
 				break;
-		    case 'd^:':
+		    	case 'd^:':
 				client.say(to, 'D^^^^:');
 				break;
-		    case ':^d':
+			 case ':^d':
 				client.say(to, ':^^^^D');
 				break;
-
+			case 'prodigal':
+				client.say(to,'fuck that nautical');
+				break;
 						
 			case 'lok':
 			case 'lol':
