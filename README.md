@@ -42,6 +42,8 @@ Install by running `npm install` and then `node bot.js`.
  - returns ":^^^^D"
 - **dat boi** `o shit`, `oshit` 
  - returns "waddup"
+- **death grips** `prodigal`
+ - returns death grips lyrics
 - **dude weed lmao** `dude` 
  - returns "weed lmao"
 - **kanye** `ye`, `yeezy`, `yeezus`
