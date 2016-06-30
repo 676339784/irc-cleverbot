@@ -34,11 +34,11 @@ Install by running `npm install` and then `node bot.js`.
 ####Chat Triggered
 - **:^)** `:^)`
  - returns ":^^^^^)"
-- **:^(** ':^(`
+- **:^(** `:^(`
  - returns ":^^^^("
 - **D^:** "d^:"
- - returns "D^^^^:"
-- **:^D** ":^d"
+ - returns `D^^^^:`
+- **:^D** `:^d`
  - returns ":^^^^D"
 - **dat boi** `o shit`, `oshit` 
  - returns "waddup"
