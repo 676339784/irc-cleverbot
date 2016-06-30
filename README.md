@@ -32,7 +32,14 @@ Install by running `npm install` and then `node bot.js`.
  - dispenses a gachapon item for the user `arg0`
 
 ####Chat Triggered
-
+- **:^)** `:^)`
+ - returns ":^^^^^)"
+- **:^(** `:^(`
+ - returns ":^^^^("
+- **D^:** `d^:`
+ - returns `D^^^^:`
+- **:^D** `:^d`
+ - returns ":^^^^D"
 - **dat boi** `o shit`, `oshit` 
  - returns "waddup"
 - **dude weed lmao** `dude` 
@@ -51,6 +58,8 @@ Install by running `npm install` and then `node bot.js`.
  - no furries allowed
 - **zoz** `zoz` 
  - returns a zoz variation
+- **kanye** `ye`, `yeezy`, `yeezus`
+ - returns a kanye variation
 
 ####Personal
 

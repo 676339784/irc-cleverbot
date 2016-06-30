@@ -393,7 +393,21 @@ module.exports = function(client, moduleEvent) {
 				break;
 
 			//CHAT TRIGGERED
+			
+			case ':^)':
+				client.say(to, ':^^^^)');
+				break;
+			case ':^(':
+				client.say(to, ':^^^^(');
+				break;
+		    case 'd^:':
+				client.say(to, 'D^^^^:');
+				break;
+		    case ':^d':
+				client.say(to, ':^^^^D');
+				break;
 
+						
 			case 'lok':
 			case 'lol':
 				client.say(to,'lol');
@@ -446,6 +460,20 @@ module.exports = function(client, moduleEvent) {
 			case 'memes':
 			case 'memer':
 				client.say(to, 'i love memes!');
+				break;
+				
+			case 'ye':
+				client.say(to, 'YEEZY YEEZY WHATS GOOD');
+				client.say(to, 'ITS YA BOI MAX B');
+				break;
+				
+			case 'yeezy':
+				list=['$3500','YEEZY WHATS GOOD','season'];
+				client.say(to,list[Math.floor((Math.random()*3))]);
+				break;
+			
+			case 'yeezus':
+				client.say(to, 'JUST ROSE AGAIN');
 				break;
 
 
