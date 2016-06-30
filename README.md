@@ -44,6 +44,8 @@ Install by running `npm install` and then `node bot.js`.
  - returns "waddup"
 - **dude weed lmao** `dude` 
  - returns "weed lmao"
+- **kanye** `ye`, `yeezy`, `yeezus`
+ - returns a kanye variation
 - **lol** `lol`, `lok` 
  - returns "lol"
 - **questionable** `??` 
@@ -58,8 +60,6 @@ Install by running `npm install` and then `node bot.js`.
  - no furries allowed
 - **zoz** `zoz` 
  - returns a zoz variation
-- **kanye** `ye`, `yeezy`, `yeezus`
- - returns a kanye variation
 
 ####Personal
 
