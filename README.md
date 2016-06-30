@@ -36,7 +36,7 @@ Install by running `npm install` and then `node bot.js`.
  - returns ":^^^^^)"
 - **:^(** `:^(`
  - returns ":^^^^("
-- **D^:** "d^:"
+- **D^:** `d^:`
  - returns `D^^^^:`
 - **:^D** `:^d`
  - returns ":^^^^D"
